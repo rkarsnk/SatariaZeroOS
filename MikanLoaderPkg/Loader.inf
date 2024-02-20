@@ -24,3 +24,5 @@
 [Protocols]
 # この記述がないと，undefined reference to `gEfiLoadedImageProtocolGuid' エラーが起きる．
   gEfiLoadedImageProtocolGuid
+  gEfiLoadFileProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
