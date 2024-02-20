@@ -1,4 +1,14 @@
 {
-    "git.detectSubmodules": false,
-    "git.autoRepositoryDetection": false
+  "git.detectSubmodules": false,
+  "git.autoRepositoryDetection": false,
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c99",
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  "C_Cpp.autocompleteAddParentheses": true,
+  "C_Cpp.default.intelliSenseMode": "",
+  "files.associations": {
+    "uefi.h": "c",
+    "uefilib.h": "c"
+  },
+  "editor.tabSize": 2
 }
