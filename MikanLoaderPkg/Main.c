@@ -35,7 +35,7 @@ EFI_STATUS GetMemoryMap(struct MemoryMap *map) {
 }
 
 /* -------------------------------------------------------------
-
+メモリタイプの値からメモリタイプの名称を取得する．
 -------------------------------------------------------------- */
 const CHAR16 *GetMemoryTypeUnicode(EFI_MEMORY_TYPE type) {
   switch (type) {
@@ -76,6 +76,10 @@ const CHAR16 *GetMemoryTypeUnicode(EFI_MEMORY_TYPE type) {
   }
 }
 
+
+/* ----------------------------------------------------------------------
+メモリマップをfileで指定したファイルに書き出す
+---------------------------------------------------------------------- */
 EFI_STATUS SaveMemoryMap(struct MemoryMap *map, EFI_FILE_PROTOCOL *file) {
   CHAR8 buf[256];
   UINTN len;
