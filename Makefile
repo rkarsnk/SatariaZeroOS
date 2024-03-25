@@ -17,9 +17,8 @@ edk2tools:
 loader:
 	rm -rf $(EDK2DIR)/$(LoaderPkgDir)
 	ln -s $(WORKDIR)/$(LoaderPkgDir) $(EDK2DIR)/$(LoaderPkgDir)
-	WORKSPACE=$(EDK2DIR) source $(EDK2DIR)/edksetup.sh; \
-		LDFLAGS=$(LDFLAGS) CPPFLAGS=$(CPPFLAGS) WORKSPACE=$(EDK2DIR) build -p $(LoaderPkgDir)/$(LoaderPkgDsc) -b DEBUG -a X64 -t CLANGPDB
-	
+	WORKDIR=$(WORKDIR) script/build_loader.sh
+
 .PHONY:run
 run:
 	$(WORKDIR)/osbook/devenv/run_qemu.sh $(OUTPUT)/Loader.efi
