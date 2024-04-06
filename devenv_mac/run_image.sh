@@ -17,9 +17,10 @@ fi
 
 if [ `uname` = 'Darwin' ]; then
 qemu-system-x86_64 \
+    -cpu host \
     -accel hvf \
     -m 1G \
-    -drive if=pflash,format=raw,readonly,file=$DEVENV_DIR/OVMF_CODE.fd \
+    -drive if=pflash,format=raw,readonly=on,file=$DEVENV_DIR/OVMF_CODE.fd \
     -drive if=pflash,format=raw,file=$DEVENV_DIR/OVMF_VARS.fd \
     -drive if=ide,index=0,media=disk,format=raw,file=$DISK_IMG \
     -device nec-usb-xhci,id=xhci \

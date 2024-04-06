@@ -19,9 +19,13 @@ loader:
 	ln -s $(WORKDIR)/$(LoaderPkgDir) $(EDK2DIR)/$(LoaderPkgDir)
 	WORKDIR=$(WORKDIR) script/build_loader.sh
 
+.PHONY:kernel
+kernel:
+	make -C $(WORKDIR)/kernel
+
 .PHONY:run
-run:
-	$(WORKDIR)/osbook/devenv/run_qemu.sh $(OUTPUT)/Loader.efi
+run: loader kernel
+	$(WORKDIR)/devenv_mac/run_qemu.sh $(OUTPUT)/Loader.efi $(WORKDIR)/kernel/kernel.elf
 
 clean:
 	rm -rf $(EDK2DIR)/Build/MikanLoaderX64
